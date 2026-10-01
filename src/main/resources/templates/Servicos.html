@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" th:href="@{/css/estilos.css}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <title>servicos</title>
+</head>
+<body>
+   <header class="navbar">
+        <div class="logo">FiealdCampo</div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Serviços</a></li>
+                <li><a href="#">Produtos</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+     
+
+    <main class="hero-container">
+        <div class="hero-card">
+             <h1 class="mb-4">Lista de Serviços</h1>
+            <p>Sua aplicação está rodando com sucesso utilizando <strong>Spring Boot</strong> e o motor de templates <strong>Thymeleaf</strong>.</p>
+            <div class="button-group">
+                <a href="#" class="btn btn-primary">Começar Agora</a>
+                <a href="#" class="btn btn-secondary">Aprender Mais</a>
+            </div>
+        </div>
+    </main>
+        
+         <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Criado em</th>
+      <th scope="col">Data de entrega</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Finalizado em</th>
+      <th scope="col">Numero</th>
+      <th scope="col">preço</th>
+      <th scope="col">Titulo</th>
+      <th scope="col">Atualizado em</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    <tr th:each="servico : ${servicos}">
+      <th scope="row" th:text="${servico.id}">1</th>
+      <td th:text="${#temporals.format(servico.createdAt, 'dd/MM/yyyy HH:mm')}">Otto</td>
+      <td th:text="${#temporals.format(servico.deadLine, 'dd/MM/yyyy HH:mm')}">@mdo</td>
+      <td th:text="${servico.descricao}">@mdo</td>
+      <td th:text="${#temporals.format(servico.fineshedAt)} ?: 'Em Andmento'">@mdo</td>
+      <td th:text="${servico.numero}">Otto</td>
+      <td th:text="${'R$ ' + #numbers.formatDecimal(servico.preco, 1, 2, 'COMMA')}">R$ 0,00</td>
+       <td th:text="${servico.title}">Mark</td>
+       <td th:text="${#temporals.format(servico.updatedAt, 'dd/MM/yyyy HH:mm')}">Mark</td>
+      <td>
+        <a href="" class="btn btn-sm btn-primary">Concluir</a>
+        <a href="" class="btn btn-sm btn-segundary">Editar</a>
+        <a href="" class="btn btn-sm btn-danger">Excluir</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<a href="" class="btn btn-primary">Nova Tarefa</a>
+</main>
+        
+    <footer class="footer">
+        <p>&copy; 2026 Seu Projeto Spring Web. Todos os direitos reservados LIMA'S.</p>
+    </footer>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+</body>
+</html>
